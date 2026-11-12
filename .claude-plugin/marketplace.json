@@ -1,0 +1,8 @@
+{
+  "name": "seedbed-skill",
+  "description": "Seedbed agent skill",
+  "owner": { "name": "Finarfin12" },
+  "plugins": [
+    { "name": "seedbed", "source": "./", "description": "Thinking gates for ideas. The agent only asks; you think." }
+  ]
+}
