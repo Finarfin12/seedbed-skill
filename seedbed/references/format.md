@@ -30,7 +30,11 @@ Categories, in this order, with the label to write: Clarification, Assumptions, 
 At least 4 of the 5 questions answered (not empty after trimming). Labels, in order: Assumptions, Opposite, Evidence, Opponent, Failure. A pass adds `devil` to `gates`; on a `growing` note it also sets `status: mature` and `review` = today + 30 days. A `seed` note is never promoted by it. For a `concept` the gate is optional.
 
 ## Feynman pass rule (skill version)
-Every gap question answered with at least 20 characters (trimmed), or no gaps found. The plugin counts unexplained terms by pattern at 0 open gaps; the status change is the same: a `seed` concept becomes `growing`, `gates` gets `feynman`, `review` = today + 14 days. The trail uses a `[!feynman-hint]-` callout (title `Feynman check — date`), which the plugin does not analyze.
+No gap left open (each gap closed by an explicit explanation of that term or step, see `references/feynman.md`). The plugin counts unexplained terms by pattern at 0 open gaps; the status change is the same: a `seed` concept becomes `growing`, `gates` gets `feynman`, `review` = today + 14 days. The trail uses a `[!feynman-hint]-` callout (title `Feynman check — date`), which the plugin does not analyze.
+
+## Other callouts and the `premortem` gate
+- `[!retrieval]-` (retrieval practice) and `[!premortem]-` (pre-mortem) follow the same line format. Neither changes `status` or `review`.
+- `premortem` is a **new value of `gates`** written by the skill. Plugin 0.7.0 reads a note with it as valid but ignores the unknown value, and rewriting `gates` from the plugin (for example Promote) may drop it. Plugin 0.7.0's Feynman analyzer also counts the text of `[!retrieval]` and `[!premortem]` callouts for `concept` notes.
 
 ## Callout (the thinking trail)
 Always **append at the end** of the note after one blank line. Never edit or delete existing text.
