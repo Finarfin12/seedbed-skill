@@ -36,6 +36,27 @@ No gap left open (each gap closed by an explicit explanation of that term or ste
 - `[!retrieval]-` (retrieval practice) and `[!premortem]-` (pre-mortem) follow the same line format. Neither changes `status` or `review`.
 - `premortem` is a **new value of `gates`** written by the skill. Plugin 0.7.0 reads a note with it as valid but ignores the unknown value, and rewriting `gates` from the plugin (for example Promote) may drop it. Plugin 0.7.0's Feynman analyzer also counts the text of `[!retrieval]` and `[!premortem]` callouts for `concept` notes.
 
+## Evidence callout (skill only)
+`[!evidence]-` follows the same line format and changes no property (`status`, `review`, `gates` stay as they are). One callout per session; the plugin ignores its content (plugin 0.8.2 and later).
+
+```markdown
+> [!evidence]- Evidence — 2026-11-13
+> **Claim** · AI · skill (<agent name>)
+> <the user's claim, exactly>
+>
+> **Source 1** · A · journal
+> <Title> — <Journal/publisher>, <Author>, <YYYY or YYYY-MM-DD>
+> <https://doi.org/... or URL> (accessed 2026-11-13)
+> Quote: "<word for word>"
+> Does this support, contradict, or not relate to your claim? Which part?
+> Answer: <the user's answer, verbatim>
+>
+> **Reflection**
+> What would you change in your claim or idea now?
+> Answer: <the user's answer, verbatim>
+```
+Tier `A` or `B`, then `journal`, `official`, `standard` or `blog` (`preprint` for preprints). Abstract only: `Quote (abstract):`. A source that could not be opened is never written. Details: `references/evidence.md`.
+
 ## Callout (the thinking trail)
 Always **append at the end** of the note after one blank line. Never edit or delete existing text.
 
