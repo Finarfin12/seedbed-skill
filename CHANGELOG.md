@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Package: added ready-to-extract `seedbed-skill-0.4.0.zip` to GitHub Releases and the repository root, with download instructions in README (EN/ID).
 - Docs: README (EN/ID) updated for 0.4.0: status, plugin compatibility table, related repositories (Seedbed, seedbed-capture), evidence test coverage; removed the outdated plugin 0.7.0 limit.
 
 ## 0.4.0

@@ -16,7 +16,7 @@ Catatannya Markdown biasa dengan properti sederhana (`type`, `status`, `created`
 /plugin marketplace add Finarfin12/seedbed-skill
 /plugin install seedbed@seedbed-skill
 ```
-**Atau salin folder:** salin `seedbed/` ke `.claude/skills/` di proyekmu, atau ke `~/.claude/skills/` untuk semua proyek, sampai ada `.claude/skills/seedbed/SKILL.md`. Agent lain yang membaca folder `SKILL.md` mungkin bisa; belum ada yang diuji.
+**Atau unduh ZIP:** unduh [`seedbed-skill-0.4.0.zip`](https://github.com/Finarfin12/seedbed-skill/releases/download/0.4.0/seedbed-skill-0.4.0.zip) dari [Releases](https://github.com/Finarfin12/seedbed-skill/releases/latest) (tersedia juga di repositori ini sebagai [`seedbed-skill-0.4.0.zip`](seedbed-skill-0.4.0.zip)), ekstrak, lalu salin `seedbed/` ke `.claude/skills/` di proyekmu, atau ke `~/.claude/skills/` untuk semua proyek, sampai ada `.claude/skills/seedbed/SKILL.md`. Agent lain yang membaca folder `SKILL.md` mungkin bisa; belum ada yang diuji.
 
 ## Pakai
 Minta dengan bahasamu sendiri, misalnya:
