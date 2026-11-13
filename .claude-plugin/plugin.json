@@ -1,7 +1,7 @@
 {
   "name": "seedbed",
-  "version": "0.3.0",
-  "description": "Thinking gates for ideas: capture, Socratic, Devil's Advocate, Feynman, review, connect, digest, pre-mortem. The agent only asks.",
+  "version": "0.4.0",
+  "description": "Thinking gates for ideas: capture, Socratic, Devil's Advocate, Feynman, review, connect, digest, pre-mortem, evidence (web sources as quotes). The agent only asks.",
   "author": { "name": "Finarfin12" },
   "license": "MIT",
   "skills": "./"

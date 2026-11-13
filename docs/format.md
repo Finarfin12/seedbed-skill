@@ -66,6 +66,7 @@ Always **appended at the end** of the note; existing text is never deleted.
 | `[!premortem]` | pre-mortem session (plugin and skill) |
 | `[!retrieval]` | recall practice (plugin and skill), layout below |
 | `[!connect]` | answers about how this idea relates to another Seedbed idea (v2), layout below |
+| `[!evidence]` | evidence session (skill only; the plugin ignores its content from 0.8.2), layout below |
 | `[!trigger]` / `[!quote]` | captures from the browser extension (`[!pemicu]` is the old name) |
 
 Source label: the plugin writes `AI · local (...)`, `AI · cloud (...)` or `Bank`; the skill writes `AI · skill (<agent name>)`. A line of content that starts with `[!` is written as `\[!` (and read back without the backslash). Every line starts with `> `. The plugin's Indonesian UI writes `Jawaban:` and `Jawaban lama:` instead of `Answer:` and `Earlier answer:`; readers accept both.
@@ -89,6 +90,25 @@ The label line may end with the user's **own rating**: `remembered`, `partly` or
 ```
 The label is the title of the other idea. Only notes with `type: idea` or `concept` may be candidates. A link is added only after the user asks for it: one line `Related: [[Title]]` at the end of the note, never duplicated, with `[ ] | # ^ \` and newlines removed from the title.
 
+### Evidence layout (v2, skill only)
+```markdown
+> [!evidence]- Evidence — 2026-11-13
+> **Claim** · AI · skill (Claude Code)
+> <the user's claim, exactly>
+>
+> **Source 1** · A · journal
+> <Title> — <Journal/publisher>, <Author>, <YYYY or YYYY-MM-DD>
+> <https://doi.org/... or URL> (accessed 2026-11-13)
+> Quote: "<word for word, from the page that was opened>"
+> Does this support, contradict, or not relate to your claim? Which part?
+> Answer: <the user's answer, exactly>
+>
+> **Reflection**
+> What would you change in your claim or idea now?
+> Answer: <the user's answer, exactly>
+```
+One callout per session; several claims repeat the `**Claim**` block, each followed by its sources. The meta after `Source n` is the tier (`A` official/peer-reviewed, `B` trustworthy blog or preprint) and the kind (`journal`, `official`, `standard`, `blog`, `preprint`). An abstract-only quote is `Quote (abstract):`. Sources that could not be opened are never written. The note's properties (`status`, `review`, `gates`) do not change, so there is no new `gates` value. A `[!evidence]` callout is never a source for recall questions.
+
 ## 7. Skill configuration
 Optional `.seedbed.json` at the root of the notes folder:
 
@@ -105,3 +125,4 @@ Remove `\ / : * ? " < > | # ^ [ ]`, cut to 80 characters, add a number if the na
 - `gates` may hold other values (`premortem` is the first); readers must keep them.
 - New callouts `[!connect]`; `[!retrieval]` gets a documented layout with an optional self-rating; `[!premortem]` may use per-category labels.
 - The "Known interop limits" of plugin 0.7.0 no longer apply from plugin 0.8.0.
+- Skill 0.4.0: new callout `[!evidence]` (skill only). Plugin 0.8.2 ignores its content in the Feynman analyzer.
