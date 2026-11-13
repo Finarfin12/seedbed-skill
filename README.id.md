@@ -8,7 +8,7 @@
 
 Catatannya Markdown biasa dengan properti sederhana (`type`, `status`, `created`, `review`, ...), jadi folder yang sama bisa dipakai di vault Obsidian dengan plugin Seedbed atau di folder mana pun. Lihat [docs/format.md](docs/format.md) (English).
 
-> **Status: v0.3.0 (pra-rilis).** Baru diuji di Claude Code, satu sampel per skenario. Lihat [Batasan](#batasan).
+> **Status: v0.4.0 (pra-rilis).** Baru diuji di Claude Code, satu sampel per skenario. Baru di 0.4.0: [mode evidence](#mode-evidence-khusus-skill). Lihat [Batasan](#batasan) dan [CHANGELOG](CHANGELOG.md) (English).
 
 ## Pasang (Claude Code)
 **Sebagai plugin dari repositori ini:**
@@ -69,13 +69,23 @@ Plugin tetap offline; skill bisa membawa bukti dari luar. Kamu menulis klaim dul
 10. (evidence) Hanya mengutip yang dibuka agent pada sesi itu.
 
 ## Hubungan dengan plugin Seedbed
-[Plugin Seedbed](https://github.com/Finarfin12/Seedbed) (Obsidian) menampilkan catatan di Inkubator, menjaga tanggal tinjau, dan bisa menjalankan gerbang offline dengan bank pertanyaan. Skill ini untuk berpikir mendalam bersama agent di mana pun kamu bekerja. Keduanya memakai format yang sama, jadi catatan dari skill muncul di Inkubator plugin.
+[Plugin Seedbed](https://github.com/Finarfin12/Seedbed) (Obsidian) menampilkan catatan di Inkubator, menjaga tanggal tinjau, dan menjalankan gerbang offline dengan bank pertanyaan, ditambah Recall, Connect, digest mingguan dengan bagian Macet, Pre-mortem, dan AI opsional yang hanya boleh bertanya. Skill ini untuk berpikir mendalam bersama agent di mana pun kamu bekerja. Keduanya memakai format yang sama, jadi catatan dari skill muncul di Inkubator plugin.
+
+| Skill | Cocok dengan plugin | Catatan |
+|---|---|---|
+| 0.4.0 | 0.8.2 atau lebih baru (disarankan) | plugin melewati isi callout `[!evidence]` |
+| 0.3.0 ke atas | 0.8.0 atau lebih baru | plugin mempertahankan `premortem` dan nilai `gates` lain yang tidak dikenalnya |
+
+## Repositori terkait
+- [Seedbed](https://github.com/Finarfin12/Seedbed): plugin Obsidian
+- [seedbed-capture](https://github.com/Finarfin12/seedbed-capture): Seedbed Capture, ekstensi Chrome yang menyimpan teks terpilih sebagai benih di plugin
 
 ## Batasan
 - **Perilaku tidak dipaksa oleh kode.** "Hanya bertanya" dan "satu pertanyaan per giliran" adalah instruksi; agent masih bisa melanggarnya. Di uji dengan Claude Code agent menaatinya di setiap giliran yang kami lihat, tetapi itu bukti, bukan jaminan.
 - Baru diuji di Claude Code, satu sampel per skenario; tanpa agent lain; belum dijalankan di GUI Inkubator Obsidian (hanya pemeriksaan parser).
 - Gerbang Feynman di sini adalah aturan yang diterapkan agent (penjelasan eksplisit per celah), bukan analyzer berbasis pola milik plugin, dan lebih lemah daripada pemeriksaan manusia.
-- `premortem` adalah nilai baru di `gates`: plugin 0.7.0 membaca catatan itu sebagai valid tetapi membuang nilainya saat menulis ulang `gates` (lihat [docs/format.md](docs/format.md)).
+- Pakai plugin 0.8.0 atau lebih baru: plugin 0.7.0 membuang `premortem` dari `gates` saat menulis ulang (lihat [docs/format.md](docs/format.md)).
+- Mode evidence diuji pada 10 dari 11 skenario rencana dengan Claude Code; skenario sumber yang saling bertentangan belum diuji. Hasil pencarian bergantung pada alat pencarian web milik agent.
 - Memakai kuota atau token agent-mu di setiap sesi.
 
 ## Lisensi

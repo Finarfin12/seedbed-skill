@@ -8,7 +8,7 @@ An [Agent Skill](https://agentskills.io) that brings the thinking gates of [Seed
 
 Notes are plain Markdown with simple properties (`type`, `status`, `created`, `review`, ...), so the same folder works in an Obsidian vault with the Seedbed plugin or in any folder. See [docs/format.md](docs/format.md).
 
-> **Status: v0.3.0 (pre-release).** Tested only with Claude Code, one sample per scenario. See [Limits](#limits).
+> **Status: v0.4.0 (pre-release).** Tested only with Claude Code, one sample per scenario. New in 0.4.0: [evidence mode](#evidence-mode-skill-only). See [Limits](#limits) and the [CHANGELOG](CHANGELOG.md).
 
 ## Install (Claude Code)
 **As a plugin from this repository:**
@@ -69,13 +69,23 @@ The plugin stays offline; the skill can bring evidence from outside. You write t
 10. (evidence) Quote only what the agent opened in that session.
 
 ## Relation to the Seedbed plugin
-The [Seedbed plugin](https://github.com/Finarfin12/Seedbed) (Obsidian) shows notes in an Incubator, keeps review dates, and can run the gates offline with a question bank. This skill is for thinking deeply with an agent wherever you work. Both use the same format, so notes made by the skill appear in the plugin's Incubator.
+The [Seedbed plugin](https://github.com/Finarfin12/Seedbed) (Obsidian) shows notes in an Incubator, keeps review dates, and runs the gates offline with a question bank, plus Recall, Connect, a weekly digest with a Stuck section, Pre-mortem and an optional AI that may only ask. This skill is for thinking deeply with an agent wherever you work. Both use the same format, so notes made by the skill appear in the plugin's Incubator.
+
+| Skill | Works with plugin | Notes |
+|---|---|---|
+| 0.4.0 | 0.8.2 or later (recommended) | the plugin ignores the content of `[!evidence]` callouts |
+| 0.3.0 and later | 0.8.0 or later | the plugin keeps `premortem` and other unknown `gates` values |
+
+## Related repositories
+- [Seedbed](https://github.com/Finarfin12/Seedbed): the Obsidian plugin
+- [seedbed-capture](https://github.com/Finarfin12/seedbed-capture): Seedbed Capture, a Chrome extension that saves selected text as a seed in the plugin
 
 ## Limits
 - **Behavior is not enforced by code.** "Only ask" and "one question per turn" are instructions; an agent can still break them. In tests with Claude Code the agent kept to them in every turn we looked at, but that is evidence, not a guarantee.
 - Tested only with Claude Code, one sample per scenario; no other agent; not run in the Obsidian Incubator GUI (parser check only).
 - The Feynman gate here is a rule the agent applies (an explicit explanation per gap); it is not the plugin's pattern-based analyzer and is weaker than a human check.
-- `premortem` is a new value in `gates`: plugin 0.7.0 reads such notes as valid but drops that value when it rewrites `gates` (see [docs/format.md](docs/format.md)).
+- Use plugin 0.8.0 or later: plugin 0.7.0 drops `premortem` from `gates` when it rewrites them (see [docs/format.md](docs/format.md)).
+- Evidence mode was tested in 10 of 11 planned scenarios with Claude Code; the scenario with sources that disagree has not been tested yet. Search results depend on the agent's web search tool.
 - Uses your agent's quota or tokens in every session.
 
 ## License
