@@ -16,7 +16,7 @@ Notes are plain Markdown with simple properties (`type`, `status`, `created`, `r
 /plugin marketplace add Finarfin12/seedbed-skill
 /plugin install seedbed@seedbed-skill
 ```
-**Or copy the folder:** copy `seedbed/` into `.claude/skills/` of your project, or into `~/.claude/skills/` for all projects, so that `.claude/skills/seedbed/SKILL.md` exists. Other agents that read `SKILL.md` folders may work; none has been tested.
+**Or download the ZIP:** download [`seedbed-skill-0.4.0.zip`](https://github.com/Finarfin12/seedbed-skill/releases/download/0.4.0/seedbed-skill-0.4.0.zip) from [Releases](https://github.com/Finarfin12/seedbed-skill/releases/latest) (also in this repository as [`seedbed-skill-0.4.0.zip`](seedbed-skill-0.4.0.zip)), extract it, and copy `seedbed/` into `.claude/skills/` of your project, or into `~/.claude/skills/` for all projects, so that `.claude/skills/seedbed/SKILL.md` exists. Other agents that read `SKILL.md` folders may work; none has been tested.
 
 ## Use
 Just ask in your own language, for example:
